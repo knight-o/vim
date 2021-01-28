@@ -22,11 +22,6 @@ set encoding=utf-8
 set noerrorbells
 " 鼠标可用
 set mouse=a
-"让vim像IDE一样一键放大缩小字号
-let guifontpp_size_increment=1 "每次更改的字号
-let guifontpp_smaller_font_map="<M-Down>" 
-let guifontpp_larger_font_map="<M-Up>" 
-let guifontpp_original_font_map="<M-Home>"
 
 " ###########
 "  缩进配置
@@ -64,8 +59,6 @@ set nobackup
 set noswapfile
 " 保留撤销历史
 set undofile
-
-
 " ###########
 "  搜索配置
 " ###########
@@ -80,6 +73,20 @@ let mapleader=','
 inoremap jj <Esc>`^
 inoremap <leader>w <Esc>:w<cr>
 
+"use ctrl+h/j/k/L switch window
+noremap <C-h> <C-w>h
+noremap <C-j> <C-w>j
+noremap <C-k> <C-w>k
+noremap <C-l> <C-w>l
+
+nnoremap <leader>v :NERDTreeFind<cr>
+nnoremap <leader>g :NERDTreeToggle<cr>
+
+let g:ctrlp_map='<c-p>'
+
+nmap ss <Plug>(easymotion-s2)
+
+
 " ##########
 "   插件
 " ##########
@@ -88,5 +95,8 @@ call plug#begin('~/.vim/plugged')
 Plug 'mhinz/vim-startify'
 Plug 'vim-airline/vim-airline'
 Plug 'w0ng/vim-hybrid'
+Plug 'scrooloose/nerdtree'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'easymotion/vim-easymotion'
 
 call plug#end()
